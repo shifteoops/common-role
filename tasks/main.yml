@@ -1,0 +1,49 @@
+
+# Configure APT
+- name: Generate sources.list
+  template :
+    src: sources.list.j2
+    dest: /etc/apt/sources.list
+  notify: update apt
+  tags:
+    - package_common
+
+- name: Run apt-get update
+  apt:
+    update_cache: yes
+
+
+- name: Set up the hosts file
+  template :
+    src: hosts.j2
+    dest: /etc/hosts
+  tags:
+    - package_common
+    - config_common
+
+
+- name: Reconfigure all dpgk packages
+  shell: dpkg --configure -a
+  tags:
+    - initial_install
+    - config_common
+
+- name: install essential packages
+  apt:
+    name: "{{ additional_packages }}"
+    state: present
+  tags:
+    - package_common
+
+- name: install python packages
+  apt:
+    name: "{{ python_packages }}"
+    state: present
+  tags:
+    - package_common
+
+- name: install python PIP packages
+  pip:
+    name: pexpect
+  tags:
+    - package_common

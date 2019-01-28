@@ -1,0 +1,17 @@
+{{ ansible_managed }}
+
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+
+{% for group in groups %}
+{% if groups[group] and group != 'all' %}
+{% if groups[group] and group != 'ungrouped' %}
+{% for host in groups['vagrant'] %}
+{{ hostvars[host].ip}} {{ hostvars[host].inventory_hostname }}.{{site_domaine_name}}
+{% endfor %}
+
+{% endif %}
+{% endif %}
+
+{% endfor %}

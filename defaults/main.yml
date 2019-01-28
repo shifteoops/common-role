@@ -1,0 +1,20 @@
+additional_packages :
+  - build-essential
+  - ccze
+  - htop
+  - unzip
+  - openssl
+  - binutils
+  - zip
+  - iftop
+  
+python_packages:
+  - python-minimal
+  - python-pip
+  - unzip
+  - cron-apt
+
+python_packages_pip:
+  - pexpect
+  - pyOpenSSL
+  - PyMySQL
