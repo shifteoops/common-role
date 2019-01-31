@@ -7,10 +7,10 @@ additional_packages :
   - binutils
   - zip
   - iftop
-  
+
 python_packages:
-  - python-minimal
-  - python-pip
+  - python3-minimal
+  - python3-pip
   - unzip
   - cron-apt
 
