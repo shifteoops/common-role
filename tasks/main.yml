@@ -1,4 +1,4 @@
-
+---
 # Configure APT
 - name: Generate sources.list
   template :
@@ -7,10 +7,9 @@
   notify: update apt
 
 
-- name: Run apt-get update
+- name: Apt caches
   apt:
     update_cache: yes
-
 
 - name: Set up the hosts file
   template :
@@ -20,7 +19,7 @@
 
 
 - name: Reconfigure all dpgk packages
-  shell: dpkg --configure -a
+  command: dpkg --configure -a
 
 
 - name: install essential packages
