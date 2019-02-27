@@ -15,9 +15,6 @@
     src: hosts.j2
     dest: /etc/hosts
 
-- name: Reconfigure all dpgk packages
-  command: dpkg --configure -a
-  changed_when: true
 
 - name: install essential packages
   apt:
