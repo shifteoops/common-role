@@ -8,7 +8,7 @@
 {% if groups[group] and group != 'all' %}
 {% if groups[group] and group != 'ungrouped' %}
 {% for host in groups[group] %}
-{{ hostvars[host].ip}} {{ hostvars[host].inventory_hostname }}.{{site_domaine_name}}
+{{ hostvars[host].ansible_ssh_host}} {{ hostvars[host].inventory_hostname }}.{{site_domaine_name}}
 {% endfor %}
 
 {% endif %}
