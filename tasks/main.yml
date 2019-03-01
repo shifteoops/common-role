@@ -10,10 +10,10 @@
   apt:
     update_cache: yes
 
-- name: Set up the hosts file
-  template :
-    src: hosts.j2
-    dest: /etc/hosts
+#- name: Set up the hosts file
+#  template :
+#    src: hosts.j2
+#    dest: /etc/hosts
 
 
 - name: install essential packages
