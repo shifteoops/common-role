@@ -7,7 +7,7 @@
 {% for group in groups %}
 {% if groups[group] and group != 'all' %}
 {% if groups[group] and group != 'ungrouped' %}
-{% for host in groups['vagrant'] %}
+{% for host in groups %}
 {{ hostvars[host].ip}} {{ hostvars[host].inventory_hostname }}.{{site_domaine_name}}
 {% endfor %}
 
